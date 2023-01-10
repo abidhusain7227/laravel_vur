@@ -1,0 +1,28 @@
+.badge-success{
+    position: relative;
+    font-size: 13px;
+    color: white;
+    font-weight: 400;
+    background-color: green;
+}
+.badge-danger{
+    position: relative;
+    font-size: 13px;
+    color: white;
+    font-weight: 400;
+    background-color: red;
+}
+
+.badge{
+    border: 0px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.badge-danger:hover{
+    background-color: #d03636f8;
+}
+.badge-success:hover{
+    background-color: #2b8e2b;
+}
+
+
