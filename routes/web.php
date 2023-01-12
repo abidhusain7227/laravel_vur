@@ -22,9 +22,13 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/{any}', function () {
-    return view('layouts.app');
-})->where('any', '.*');
+// Route::get('/{any}', function () {
+//     return view('layouts.app');
+// })->where('any', '.*');
 
 // Route::get('test',[amezonController::class,'Amazon']);
 // Route::get('carbon',[amezonController::class,'Carbon']);
+
+Route::get('/loop', function () {
+    return view('loop');
+});

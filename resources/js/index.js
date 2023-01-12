@@ -42,17 +42,20 @@ const router = new Router({
         {
             path: '/employe',
             name: 'employe',
-            component: Employe
+            component: Employe,
+            meta: { title: 'Employe' }
         },
         {
             path: '/employe/add',
             name: 'employe/add',
-            component: Employe_add
+            component: Employe_add,
+            meta: { title: 'Add Employe' }
         },
         {
             path: '/employe/edit/:employeId',
             name: '/employe/edit',
-            component: Employe_edit
+            component: Employe_edit,
+            meta: { title: 'Edit Employe' }
         }
     ]
 });
@@ -69,4 +72,10 @@ router.beforeEach((to, from, next) => {
      
   })
 
+const DEFAULT_TITLE = 'Lravel_Vue';
+router.afterEach((to, from) => {
+    Vue.nextTick(() => {
+        document.title = to.meta.title || DEFAULT_TITLE;
+    });
+});
 export default router;

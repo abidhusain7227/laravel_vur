@@ -1,36 +1,49 @@
 <script>
-  export default {
+export default {
     mounted() {
-        console.log('aboute')
-    }
-  }
-  </script>
+        console.log("aboute");
+    },
+    data() {
+        return {};
+    },
+    methods: {
+        TwoSum() {
+            let nums = [-1, -2, -3, -4, -5];
+            let target = -8;
+            let data;
+            for (let index = 0; index < nums.length; index++) {
+                const element = nums[index];
+                if (element < target) {
+                    data = target - element;
+                } else if (element > target) {
+                    data = target - element;
+                } else {
+                    data = element - target;
+                }
+                let i = 1;
+                for (let index2 = 0; index2 < nums.length; index2++) {
+                    const element2 = nums[index2];
+                    let data2 = element + element2;
+                    if (element2 == data) {
+                        if (index != index2) {
+                            if (data2 == target) {
+                                let Output = [index, index2];
+                                return Output;
+                            }
+                        }
+                    } else {
+                        i++;
+                    }
+                }
+            }
+        },
+    },
+};
+</script>
 
 <template>
-  <div>
-        <h1>Test Vue About</h1>
-        <!-- Try Bootstrap -->
-        <div class="alert alert-primary" role="alert">
-          A simple primary alert—check it out!
-        </div>
-        <!-- Try bootstrap-vue -->
-        <b-card
-          title="Card Title"
-          img-src="https://picsum.photos/600/300/?image=25"
-          img-alt="Image"
-          img-top
-          tag="article"
-          style="max-width: 20rem;"
-          class="mb-2"
-        >
-          <b-card-text>
-          Some quick example text to build on the card title and make up the bulk of the card's content.
-          </b-card-text>
-  
-          <b-button href="#" variant="primary">Go somewhere</b-button>
-        </b-card>
+    <div>
+        <button @click="TwoSum()">TwoSum</button>
+        <h1>{{ TwoSum() }}</h1>
     </div>
-  </template>
-  
-  
-  
+</template>
