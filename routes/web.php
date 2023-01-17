@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\amezonController;
+use App\Http\Controllers\hyperpayController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,10 @@ Route::get('/{any}', function () {
 // Route::get('test',[amezonController::class,'Amazon']);
 // Route::get('carbon',[amezonController::class,'Carbon']);
 
-// Route::get('/loop', function () {
-//     return view('loop');
-// });
+Route::get('/pay', function () {
+    return view('hyp');
+});
+
+
+Route::get('hyperpay',[hyperpayController::class,'hyperPay']);
+Route::get('hyperpaysubmit',[hyperpayController::class,'hyperpaySubmit']);
