@@ -12,15 +12,7 @@ import {set_Token} from './Helper/helper';
 window.Vue = Vue;
 
 Vue.use(BootstrapVue);
-// var token = localStorage.getItem("token")
 
-// set_axios_defaults(token)
-// if(token){
-//     console.log('hello moto')
-//     console.log(token)
-//     window.axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-//     // localStorage.removeItem('token')
-// }
 
 
 Vue.use(Toasted, {
