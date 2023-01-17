@@ -53,37 +53,71 @@ export default {
           console.log(arry.length)
         },
 
+        // addTwoNumbers(){
+        //   let l1 = [2,4,3], l2 = [5,6,4]
+        //   let rel1 = l1.reverse().toString().split(',').join("");
+        //   let rel2 = l2.reverse().toString().split(',').join("");
+        //   console.log(l1,)
+        //   let sum = Number(rel1) + Number(rel2)
+        //   let myFunc = num => Number(num);
+        //   var output = Array.from(String(sum), myFunc);
+        //   output = output.reverse()
+        //   return output;
+        // },
+
         addTwoNumbers(){
-          let l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
-          let rel1 = l1.reverse().toString().split(',').join("");
-          let rel2 = l2.reverse().toString().split(',').join("");
-          let sum = Number(rel1) + Number(rel2)
-          let myFunc = num => Number(num);
-          var output = Array.from(String(sum), myFunc);
-          output = output.reverse()
+          let l1 = [2,4,3], l2 = [5,6,4]
+          l1 = l1.toString().split(',').join("");
+          l2 = l2.toString().split(',').join("");
+          let l1reversed = 0;
+          let l2reversed = 0;
+          l1 = Number(l1)
+          l2 = Number(l2)
+          var output = [0]
+          if(l1 >!1 && l2>!1){
+              while(l1>0){
+                  l1reversed = (l1reversed * 10) + (l1%10);
+                  l1 = parseInt(l1/10);
+              }
+              while(l2>0){
+                  l2reversed = (l2reversed * 10) + (l2%10);
+                  l2 = parseInt(l2/10);
+              }
+            let sum = Number(l1reversed) + Number(l2reversed)
+            let rsum = 0
+            while(sum>0){
+                  rsum = (rsum * 10) + (sum%10);
+                  sum = parseInt(sum/10);
+                  console.log(rsum);
+                  output.push(rsum);
+              }
+            // let myFunc = num => Number(num);
+            // output = Array.from(String(rsum), myFunc);
+          }
           return output;
         },
-         isPalindrome(x=10) {
-            const isNegative = x< 0 ? true : false;
-            if (isNegative){
-                return false;
-            }
-            const temp = x;
-            let reversed = 0;
-              
-            while(x>0){
-                reversed = (reversed * 10) + (x%10);
-                x = parseInt(x/10);
-            }
-            return reversed == temp;
-          }
+
+        isPalindrome(x=100000000001) {
+        const isNe = x< 0 ? true : false;
+        if (isNe){
+            return false;
+        }
+        const temp = x;
+        let reversed = 0;
+            
+        while(x>0){
+            reversed = (reversed * 10) + (x%10);
+            x = parseInt(x/10);
+        }
+        return reversed == temp;
+        }
     },
 };
 </script>
 
 <template>
     <div>
-        <button @click="isPalindrome()">isPalindrome</button>
-        <h1>{{ isPalindrome() }}</h1>
+        <button @click="addTwoNumbers()">addTwoNumbers</button>
+        <h1>{{ addTwoNumbers() }}</h1>
     </div>
 </template>

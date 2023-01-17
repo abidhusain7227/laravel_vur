@@ -2,8 +2,34 @@
 import navbarVue from './layout/navbar.vue';
 export default {
   components:{navbarVue},
+  data () {
+    return {
+      rawHtml:'<span style="color: red">This should be red.</span>',
+      activeClass: 'active',
+      errorClass: 'text-danger',
+      parentMessage: 'Parent',
+      items: [{ message: 'Foo' }, { message: 'Bar' }],
+      myObject: {
+        title: 'How to do lists in Vue',
+        author: 'Jane Doe',
+        publishedAt: '2016-04-10'
+    },
+    numbers: [1, 2, 3, 4, 5],
+    sets: [[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]]
+    }
+  },
   mounted() {
       console.log('Home')
+  },
+  methods : {
+    even(numbers) {
+      return numbers.filter(number => number % 2 ===  0)
+    }
+  },
+  computed: {
+    evenNumbers() {
+      return this.numbers.filter(n => n % 2 === 0)
+    }
   }
 }
 </script>
@@ -12,6 +38,24 @@ export default {
   <div>
     <navbarVue />
       <h1>Test Vue home</h1>
+      <p>Using text interpolation: {{ rawHtml }}</p>
+      <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+      <div :class="[activeClass, errorClass]">ramu</div>
+      <li v-for="(item, index) in items">
+        {{ parentMessage }} - {{ index }} - {{ item.message }}
+      </li>
+
+      <ul>
+        <li v-for="(value, key, index) in myObject">
+          {{ index }}. {{ key }}: {{ value }}
+        </li>
+      </ul>
+      <!-- evenNumbers -->
+      <li v-for="n in evenNumbers">{{ n }}</li>
+      <ul v-for="numbers in sets">
+        <li v-for="n in even(numbers)">{{ n }}</li>
+      </ul>
+
       <!-- Try Bootstrap -->
       <div class="alert alert-primary" role="alert">
         A simple primary alert—check it out!
