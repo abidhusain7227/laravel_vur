@@ -2,6 +2,7 @@
 // import Navbar from "../views/layout/navbar";
 // import navbarVue from "./layout/navbar.vue";
 export default {
+    name: 'app',
     components: {  },
 };
 </script>

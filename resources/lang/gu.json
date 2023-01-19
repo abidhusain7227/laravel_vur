@@ -1,0 +1,22 @@
+{
+    "English" : "અંગ્રેજી",
+    "Hindi" : "હિન્દી",
+    "Gujarati" : "ગુજરાતી",
+    "hello":"નમસ્તે",
+    "welcome": "સ્વાગત છે :name",
+    "Add Employe" : "કર્મચારી ઉમેરો",
+    "Select number" : "નંબર પસંદ કરો",
+    "Searc..." :  "શોધો...",
+    "Searc" :  "શોધો",
+    "Select Status" : "સ્થિતિ પસંદ કરો",
+    "Employe List" : "કર્મચારી યાદી",
+    "Status" : "સ્થિતિ",
+    "Loading..." : "લોડ કરી રહ્યું છે...",
+    "Edit" : "સંપાદિત કરો",
+    "Delete" : "કાઢી નાખો",
+    "No Employe Found" : "કોઈ કર્મચારી મળ્યો નથી",
+    "Inactive" : "નિષ્ક્રિય",
+    "Active" : "સક્રિય",
+    "Show record" : "રેકોર્ડ બતાવો"
+
+}

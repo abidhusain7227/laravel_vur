@@ -38,19 +38,26 @@ export default {
             }
         },
 
-        loop(){
-          let arry = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100];
-          let slice;
-          let data = [];
-          for (let index = 0; index < arry.length;) {
-            const element = arry[index];
-            slice = arry.slice(index,4+index);
-            data.push(slice);
-            index = index + 4;
-            
-          }
-          console.log('abid',data);
-          console.log(arry.length)
+        loop() {
+            let arry = [
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+                19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,
+                35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+                51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66,
+                67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82,
+                83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98,
+                99, 100,
+            ];
+            let slice;
+            let data = [];
+            for (let index = 0; index < arry.length; ) {
+                const element = arry[index];
+                slice = arry.slice(index, 4 + index);
+                data.push(slice);
+                index = index + 4;
+            }
+            console.log("abid", data);
+            console.log(arry.length);
         },
 
         // addTwoNumbers(){
@@ -65,59 +72,123 @@ export default {
         //   return output;
         // },
 
-        addTwoNumbers(){
-          let l1 = [2,4,3], l2 = [5,6,4]
-          l1 = l1.toString().split(',').join("");
-          l2 = l2.toString().split(',').join("");
-          let l1reversed = 0;
-          let l2reversed = 0;
-          l1 = Number(l1)
-          l2 = Number(l2)
-          var output = [0]
-          if(l1 >!1 && l2>!1){
-              while(l1>0){
-                  l1reversed = (l1reversed * 10) + (l1%10);
-                  l1 = parseInt(l1/10);
-              }
-              while(l2>0){
-                  l2reversed = (l2reversed * 10) + (l2%10);
-                  l2 = parseInt(l2/10);
-              }
-            let sum = Number(l1reversed) + Number(l2reversed)
-            let rsum = 0
-            while(sum>0){
-                  rsum = (rsum * 10) + (sum%10);
-                  sum = parseInt(sum/10);
-                  console.log(rsum);
-                  output.push(rsum);
-              }
-            // let myFunc = num => Number(num);
-            // output = Array.from(String(rsum), myFunc);
-          }
-          return output;
+        addTwoNumbers() {
+            // Input: l1 = [2,4,3], l2 = [5,6,4]
+            // Output: [7,0,8]
+            // Explanation: 342 + 465 = 807.
+            let l1 = [2, 4, 3],
+                l2 = [5, 6, 4];
+            var alpha1 = "";
+            var alpha2 = "";
+            var arr = [];
+
+            for (var i = 0; i < l1.length; i++) {
+                alpha1 = l1[i] + alpha1;
+            }
+
+            for (var i = 0; i < l2.length; i++) {
+                alpha2 = l2[i] + alpha2;
+            }
+
+            var New = parseInt(alpha1) + parseInt(alpha2);
+            New = New + "";
+
+            for (var i = 0; i < New.length; i++) {
+                arr.push(parseInt(New[New.length - i - 1]));
+            }
+            return arr;
         },
 
-        isPalindrome(x=100000000001) {
-        const isNe = x< 0 ? true : false;
-        if (isNe){
-            return false;
-        }
-        const temp = x;
-        let reversed = 0;
-            
-        while(x>0){
-            reversed = (reversed * 10) + (x%10);
-            x = parseInt(x/10);
-        }
-        return reversed == temp;
-        }
+        isPalindrome(x = 100000000001) {
+            const isNe = x < 0 ? true : false;
+            if (isNe) {
+                return false;
+            }
+            const temp = x;
+            let reversed = 0;
+
+            while (x > 0) {
+                reversed = reversed * 10 + (x % 10);
+                x = parseInt(x / 10);
+            }
+            return reversed == temp;
+        },
+        lengthOfLongestSubstring() {
+            // let s = "bbtablud";
+            // let s = "anviaj"
+            // let s = "loddktdji"
+            // let s = "ggububgvfk"
+            // let s = "abcabcbb"
+            // let s = "aabaab!bb"
+            // let s = "dvdf"
+
+            // let s ='asljlj'
+             let s = "ianikjekfbfrllbau"
+            s = s.toString(s);
+            var arr = [];
+            var substring = [];
+            var forindex;
+            var asoarry = {};
+
+            if (s.length > 1) {
+                for (var i = 0; i < s.length; i++) {
+                    if (arr.includes(s[i])) {
+                        var slength = s.length - i;
+                        if (substring.length <= arr.length) {
+                            substring = arr;
+                            arr.forEach((item, index) => {
+                                if (item == s[i]) {
+                                    forindex = asoarry[s[i]];
+                                    arr = [];
+                                    asoarry = [];
+                                }
+                            });
+                            i = forindex;
+                        } else if (
+                            substring.length <= arr.length == false &&
+                            substring.length < slength == true
+                        ) {
+                            if (substring.length <= arr.length) {
+                                substring = arr;
+                            } else {
+                                arr.forEach((item, index) => {
+                                    if (item == s[i]) {
+                                        forindex = asoarry[s[i]];
+                                        arr = [];
+                                        asoarry = [];
+                                    }
+                                });
+                                i = forindex;
+                            }
+                        } else {
+                            arr = [];
+                            arr.push(s[i]);
+                            asoarry = [];
+                            asoarry[s[i]] = i;
+                        }
+                    } else {
+                        arr.push(s[i]);
+                        asoarry[s[i]] = i;
+                    }
+                }
+            } else if (s.length == 1) {
+                substring.push(s.length);
+            }
+            if (substring.length < arr.length) {
+                return arr.length;
+            } else {
+                return substring.length;
+            }
+        },
     },
 };
 </script>
 
 <template>
     <div>
-        <button @click="addTwoNumbers()">addTwoNumbers</button>
-        <h1>{{ addTwoNumbers() }}</h1>
+        <button @click="lengthOfLongestSubstring()">
+            lengthOfLongestSubstring
+        </button>
+        <h1>{{ lengthOfLongestSubstring() }}</h1>
     </div>
 </template>

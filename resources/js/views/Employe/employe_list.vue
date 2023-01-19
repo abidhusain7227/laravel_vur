@@ -82,7 +82,7 @@ export default {
             }
         },
         deleteEmploye(id){
-            if(confirm('Are you sure you want to delete Employe?')){
+            if(confirm('Are you sure you want to delete Employe?' )){
                 employeService.deleteEmploye({ id:id }).then((response) => {
                     if (response.data.code === 200) {
                         Vue.toasted.success(response.data.message,{
@@ -112,9 +112,9 @@ export default {
             <div class="row">
                 <div class="col-md-12">
                     <div class="employe">
-                        <h2>Employe List ({{employeCount}})</h2>
+                        <h2>{{ trans.get('__JSON__.Employe List') }} ({{employeCount}})</h2>
                         <router-link :to="{ name: 'employe/add' }" class="btn btn-success">
-                            <i class="mdi mdi-plus mr-1"></i> Add Employe</router-link
+                            <i class="mdi mdi-plus mr-1"></i> {{ trans.get('__JSON__.Add Employe') }}</router-link
                         >
                     </div>
                 </div>
@@ -125,10 +125,10 @@ export default {
                         <div class="col-md-2">
                             <div class="search-box mr-2 mb-2 d-inline-block">
                                 <div class="date-range-list">
-                                    <label>Show record :</label>
+                                    <label> {{ trans.get('__JSON__.Show record')}} :</label>
                                     <div class="position-relative">
                                         <select v-model="record" @change="getEmploye()" name="status" id="status" class="form-control">
-                                            <option disabled>Select number</option>
+                                            <option disabled>{{ trans.get('__JSON__.Select number')}}</option>
                                             <option value="5">05</option>
                                             <option value="10">10</option>
                                             <option value="20">20</option>
@@ -147,14 +147,14 @@ export default {
                         <div class="col-md-2">
                             <div class="search-box mr-2 mb-2 d-inline-block">
                                 <div class="date-range-list">
-                                    <label>Search :</label>
+                                    <label>{{trans.get('__JSON__.Searc')}} :</label>
                                     <div class="position-relative">
                                         <input
                                             type="text"
                                             class="form-control"
                                             @input="getEmploye()"
                                             v-model="search"
-                                            placeholder='Searc...'
+                                            :placeholder="trans.trans('__JSON__.Searc...')"
                                         />
                                         <i class="bx bx-search-alt search-icon"></i>
                                     </div>
@@ -164,12 +164,12 @@ export default {
                         <div class="col-md-2">
                             <div class="search-box mr-2 mb-2 d-inline-block">
                                 <div class="date-range-list">
-                                    <label>Status :</label>
+                                    <label>{{ trans.get('__JSON__.Status') }} :</label>
                                     <div class="position-relative">
                                         <select v-model="status" @change="getEmploye()" name="status" id="status" class="form-control">
-                                            <option value="">Select Status</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
+                                            <option value="">{{trans.get('__JSON__.Select Status') }}</option>
+                                            <option value="1">{{ trans.get("__JSON__.Active") }}</option>
+                                            <option value="0">{{ trans.get("__JSON__.Inactive") }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -188,7 +188,7 @@ export default {
                         <template #table-busy>
                             <div class="text-center text-danger my-2">
                                 <b-spinner class="align-middle"></b-spinner>
-                                <strong>Loading...</strong>
+                                <strong>{{ trans.get('__JSON__.Loading...') }}</strong>
                             </div>
                         </template>
     
@@ -209,18 +209,18 @@ export default {
                               type="submit"
                               class="badge-danger badge"
                               @click="activeInactiveEmploye(1,data.item.id)"
-                            >Inactive</button>
+                            >{{ trans.get("__JSON__.Inactive") }}</button>
                             <button
                               v-if="data.item.status == '1'"
                               type="submit"
                               class="badge-success badge"
                               @click="activeInactiveEmploye(0,data.item.id)"
-                            >Active</button>
+                            >{{ trans.get("__JSON__.Active") }}</button>
                         </template>
                         <template v-slot:cell(action)="data">
                             <div>
-                                <router-link :to="{name:'/employe/edit', params: { employeId: data.item.id }}" class="badge-success badge" >Edit</router-link>
-                                <button type="button" class="badge-danger badge" @click="deleteEmploye(data.item.id)">Delete</button>
+                                <router-link :to="{name:'/employe/edit', params: { employeId: data.item.id }}" class="badge-success badge" >{{ trans.get('__JSON__.Edit') }}</router-link>
+                                <button type="button" class="badge-danger badge" @click="deleteEmploye(data.item.id)"> {{ trans.get('__JSON__.Delete') }}</button>
                             </div>
                         </template>
                         <template v-slot:cell(date_time)="data">
@@ -230,7 +230,7 @@ export default {
                         </template>
     
                         <template #empty>
-                            <p class="text-center">No Employe Found</p>
+                            <p class="text-center"> {{ trans.get('__JSON__.No Employe Found') }} </p>
                         </template>
                     </b-table>
                 </div>
