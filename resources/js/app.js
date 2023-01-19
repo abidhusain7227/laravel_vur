@@ -1,5 +1,9 @@
 require("./bootstrap");
 import Vue from "vue";
+import Lang from 'lang.js';
+
+window.Vue = Vue;
+
 import BootstrapVue from "bootstrap-vue";
 import App from "@/js/views/App";
 import "bootstrap-vue/dist/bootstrap-vue.css";
@@ -9,7 +13,14 @@ import pagination from "laravel-vue-pagination";
 import authPlugin from './plugins/authPlugin'
 import router from "@/js/index";
 import {set_Token} from './Helper/helper';
-window.Vue = Vue;
+
+const default_locale = localStorage.getItem('locale') || 'en';
+const fallback_locale = window.fallback_locale;
+const messages = window.messages;
+// start gloable variables
+Vue.prototype.trans = new Lang( { messages, locale: default_locale, fallback: fallback_locale } );
+
+
 
 Vue.use(BootstrapVue);
 

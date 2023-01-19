@@ -1,6 +1,7 @@
 <script>
+import Language from '../../components/Language.vue';
 export default {
-
+    components : { Language },
     methods: {
         logout(){
             this.$auth.logout();
@@ -58,7 +59,10 @@ export default {
                 </b-nav-item-dropdown> -->
                 <button class="badge badge-success" @click="logout">logout</button>
                 <button class="badge badge-success ml-1" @click="initFullScreen">FullScreen</button>
-
+                
+                <div>
+                    <Language />
+                </div>
             </b-navbar-nav>
         </b-navbar>
     </div>
