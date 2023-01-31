@@ -12,12 +12,8 @@ export default {
     },
 
     mounted () {
-        console.log('checkedNames')
-        console.log(this.checkedNames)
     },
     updated (){
-        console.log('checkedNames')
-        console.log(this.checkedNames)
         this.$emit('changeTitle',this.checkedNames)
         this.checkedNames = this.checkedNames
     },

@@ -56,7 +56,6 @@ export default {
             employeService.getEmployeById({id:this.$route.params.employeId}).then((response)=>{
                 const{id,name,email,status,date_time} = response.data.data;
                 this.form = {id,name,email,status,date_time};
-                console.log(this.form.date_time)
             })
         }
     },

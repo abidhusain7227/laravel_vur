@@ -13,7 +13,6 @@ const set_axios_defaults = (token) => {
         },
         function (error) {
             if (error.response.status == 401) {
-                console.log('abid balblabla')
                 if(window.axios.defaults.headers.common.Authorization !== 'Bearer null' || error.response.data.message == 'Unauthenticated.'){
                     Vue.toasted.error('Session Expired. Try login again',{
                       duration: 2000
@@ -34,12 +33,9 @@ const set_axios_defaults = (token) => {
   }
 
 const set_Token =() => {
-    console.log('hello abid ===')
     var token = localStorage.getItem("token")
-    console.log(token)
     if(token){
         Vue.prototype.$auth.logging_done = true;
-        console.log("authPlugin.logging_done");
         set_axios_defaults(token);
     }
 }

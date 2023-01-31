@@ -24,7 +24,6 @@ export default {
     }
   },
   mounted() {
-      console.log('Home')
       // this.$refs.message.focus();
   },
   methods : {

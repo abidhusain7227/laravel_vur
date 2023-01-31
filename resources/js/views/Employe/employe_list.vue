@@ -63,8 +63,6 @@ export default {
             });
         },
         activeInactiveEmploye(status , id){
-            console.log(status)
-            console.log(id)
             if(confirm('Are you sure you want to change Employee status?')){
                 var data = {id: id, status: status}
                 employeService.activeInactiveEmploye(data).then((response) => {

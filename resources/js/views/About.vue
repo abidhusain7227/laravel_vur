@@ -1,7 +1,6 @@
 <script>
 export default {
     mounted() {
-        console.log("aboute");
     },
     data() {
         return {};
@@ -55,14 +54,11 @@ export default {
                 data.push(slice);
                 index = index + 4;
             }
-            console.log("abid", data);
-            console.log(arry.length);
         },
         // addTwoNumbers(){
         //   let l1 = [2,4,3], l2 = [5,6,4]
         //   let rel1 = l1.reverse().toString().split(',').join("");
         //   let rel2 = l2.reverse().toString().split(',').join("");
-        //   console.log(l1,)
         //   let sum = Number(rel1) + Number(rel2)
         //   let myFunc = num => Number(num);
         //   var output = Array.from(String(sum), myFunc);
@@ -185,7 +181,6 @@ export default {
             if(x < 2 ** 31 - 1 && x > Number(-2) ** Number(31)){
                 for (var i = 0; i < l1String.length; i++) {
                     alpha1 = l1String[i] + alpha1;
-                    console.log('alpha1',alpha1)
                 }
                 if(x < 0){
                     alpha1 = "-"+alpha1

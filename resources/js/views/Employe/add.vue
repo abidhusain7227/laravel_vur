@@ -38,14 +38,12 @@ export default {
             employeService
                 .addEmploye(fd)
                 .then((response) => {
-                    console.log(response.data);
                     Vue.toasted.success(response.data,{
                         duration: 5000
                     });
                     this.$router.push({ name: "employe" });
                 })
                 .catch((e) => {
-                    // console.log(err.response.errors)
                     this.errorMessage = e.response.data;
                     // var message = Object.values(err.response.data.errors)[0][0]
                     // Vue.toasted.error(message,{
