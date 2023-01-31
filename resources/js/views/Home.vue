@@ -1,7 +1,9 @@
+
 <script>
 import navbarVue from './layout/navbar.vue';
+import test from '../components/test.vue';
 export default {
-  components:{navbarVue},
+  components:{navbarVue, test},
   data () {
     return {
       rawHtml:'<span style="color: red">This should be red.</span>',
@@ -17,17 +19,22 @@ export default {
     numbers: [1, 2, 3, 4, 5],
     sets: [[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]],
     message:'',
-    checkedNames: [],
+    checkedNames: ['Mike'],
+    title:''
     }
   },
   mounted() {
       console.log('Home')
-      this.$refs.message.focus();
+      // this.$refs.message.focus();
   },
   methods : {
     even(numbers) {
       return numbers.filter(number => number % 2 ===  0)
-    }
+    },
+    ChangeT(title)
+    {
+      this.checkedNames=title;
+    },
   },
   computed: {
     evenNumbers() {
@@ -97,6 +104,12 @@ export default {
 
         <b-button href="#" variant="primary">Go somewhere</b-button>
       </b-card>
+      <div>
+        <test :username="myObject" :checkedNames="checkedNames" @changeTitle="ChangeT($event)"/>
+        
+      </div>
+      <h1>{{ title }}</h1>
   </div>
+
 </template>
 

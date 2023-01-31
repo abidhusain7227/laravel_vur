@@ -37,7 +37,6 @@ export default {
                 }
             }
         },
-
         loop() {
             let arry = [
                 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
@@ -59,7 +58,6 @@ export default {
             console.log("abid", data);
             console.log(arry.length);
         },
-
         // addTwoNumbers(){
         //   let l1 = [2,4,3], l2 = [5,6,4]
         //   let rel1 = l1.reverse().toString().split(',').join("");
@@ -98,7 +96,6 @@ export default {
             }
             return arr;
         },
-
         isPalindrome(x = 100000000001) {
             const isNe = x < 0 ? true : false;
             if (isNe) {
@@ -180,15 +177,43 @@ export default {
                 return substring.length;
             }
         },
+        reverse(){
+            let x = 1534
+            let l1String = x.toString().replace('-','')
+            var alpha1 ='';
+            let output 
+            if(x < 2 ** 31 - 1 && x > Number(-2) ** Number(31)){
+                for (var i = 0; i < l1String.length; i++) {
+                    alpha1 = l1String[i] + alpha1;
+                    console.log('alpha1',alpha1)
+                }
+                if(x < 0){
+                    alpha1 = "-"+alpha1
+                    
+                }
+            }else{
+                output = 0;
+            }
+            output = Number(alpha1)
+            if(output > 2 ** 31 - 1 ){
+                output = 0;
+            }
+            if(output < Number(-2) ** Number(31)){
+                output = 0;
+            }
+            return output
+        },
+        
+    
     },
 };
 </script>
 
 <template>
     <div>
-        <button @click="lengthOfLongestSubstring()">
-            lengthOfLongestSubstring
+        <button @click="reverse()">
+            reverse
         </button>
-        <h1>{{ lengthOfLongestSubstring() }}</h1>
+        <h1>{{ reverse() }}</h1>
     </div>
 </template>
