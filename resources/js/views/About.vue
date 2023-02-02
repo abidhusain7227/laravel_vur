@@ -199,16 +199,60 @@ export default {
             return output
         },
         
-    
+        maxArea() {
+            let height = [1,8,6,2,5,4,8,3,7]
+            let Area = 0
+            let Sbarea = 0
+            let maxArea = 0
+            for (let i = 0; i < height.length; i++) {
+                const element = height[i];
+                height.forEach((item, index) => {
+                    if(element >= item){
+                        Area = item * Math.abs(i-index)
+                    }else{
+                        Area = element * Math.abs(i-index)
+                    }
+                    if(Area > Sbarea){
+                        Sbarea = Area
+                    }
+                })
+                if(Sbarea > maxArea){
+                    maxArea = Sbarea
+                }
+            }
+            return maxArea
+            // console.log('maxArea',maxArea)
+        },
+        longestCommonPrefix () {
+            let input= [""];
+            let arraysize = input.length;
+            console.log(arraysize)
+            if (arraysize == 0) {
+                return "";
+            }
+            if (arraysize == 1) {
+            console.log('if',arraysize)
+                return input[0];
+            }
+
+            input.sort();
+            let end = Math.min(input[0].length, input[arraysize-1].length);
+            let i = 0;
+            while (i < end && input[0][i] == input[arraysize-1][i] ){
+                i++;
+            }
+            let output = input[0].substring(0, i);
+            return output;
+        }
     },
 };
 </script>
 
 <template>
     <div>
-        <button @click="reverse()">
-            reverse
+        <button @click="longestCommonPrefix()">
+            longestCommonPrefix
         </button>
-        <h1>{{ reverse() }}</h1>
+        <h1>{{ longestCommonPrefix() }}</h1>
     </div>
 </template>
