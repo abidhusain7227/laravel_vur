@@ -20,6 +20,20 @@ const messages = window.messages;
 // start gloable variables
 Vue.prototype.trans = new Lang( { messages, locale: default_locale, fallback: fallback_locale } );
 
+Vue.directive('rainbow',{
+    bind(el, binding, vnode){
+        console.log(binding.value)
+        if(binding.value == 'background-color'){
+            el.style.backgroundColor ='#' + Math.random().toString().slice(2,8)
+        }else{
+            el.style.color ='#' + Math.random().toString().slice(2,8)
+        }
+    }
+});
+
+Vue.filter('to-uppercase', function(value){
+    return value.toUpperCase();
+})
 
 
 Vue.use(BootstrapVue);

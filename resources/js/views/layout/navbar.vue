@@ -41,11 +41,11 @@ export default {
     <div>
         <b-navbar type="dark" variant="dark">
             <b-navbar-nav>
-                <router-link to="/" class="nav-link">Home</router-link>
-                <router-link :to="{ name: 'about' }" class="nav-link">About</router-link>
-                <router-link :to="{ name: 'contact' }" class="nav-link">Contact</router-link>
-                <router-link :to="{ name : 'employe'}" class="nav-link">Employe</router-link>
-                <router-link :to="{ name : 'login'}" class="nav-link">Login</router-link>
+                <router-link to="/" class="nav-link" exact>Home</router-link>
+                <router-link :to="{ name: 'about' }" exact class="nav-link">About</router-link>
+                <router-link :to="{ name: 'vueLearn' }" exact class="nav-link">VueLearn</router-link>
+                <router-link :to="{ name : 'employe'}" exact class="nav-link">Employe</router-link>
+                <router-link :to="{ name : 'login'}" exact class="nav-link">Login</router-link>
                 <!-- <b-nav-item-dropdown text="Lang" right>
                     <b-dropdown-item href="#">EN</b-dropdown-item>
                     <b-dropdown-item href="#">ES</b-dropdown-item>
@@ -67,3 +67,14 @@ export default {
         </b-navbar>
     </div>
 </template>
+
+<style scoped>
+    .router-link-active{
+        background-color: #9ea2a7;
+        color: black;
+        font-weight: 600;
+        font-size: 15px;
+        border-radius: 10px;
+        margin-bottom: 4px !important;
+    }
+</style>

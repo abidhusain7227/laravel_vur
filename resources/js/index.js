@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/js/views/Home';
-import Contact from '@/js/views/Contact';
+import vueLearn from './components/vueLearn/home.vue';
 import About from '@/js/views/About';
 import pageNotfound from "@/js/views/pagenotfound";
 import Employe from "./views/Employe/employe_list.vue";
@@ -35,9 +35,10 @@ const router = new Router({
             component: About
         },
         {
-            path: '/contact',
-            name: 'contact',
-            component: Contact
+            path: '/vueLearn',
+            name: 'vueLearn',
+            component: vueLearn,
+            meta:{ title: 'vue Learn'}
         },
         {
             path: '/employe',

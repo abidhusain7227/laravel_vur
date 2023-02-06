@@ -1,9 +1,8 @@
 
 <script>
 import navbarVue from './layout/navbar.vue';
-import test from '../components/test.vue';
 export default {
-  components:{navbarVue, test},
+  components:{navbarVue},
   data () {
     return {
       rawHtml:'<span style="color: red">This should be red.</span>',
@@ -104,7 +103,6 @@ export default {
         <b-button href="#" variant="primary">Go somewhere</b-button>
       </b-card>
       <div>
-        <test :username="myObject" :checkedNames="checkedNames" @changeTitle="ChangeT($event)"/>
         
       </div>
       <h1>{{ title }}</h1>
